@@ -72,12 +72,12 @@ const WeatherForecast = ({ weatherData }) => {
   };
   
   return (
-    <div className="weather-forecast" style={{ marginLeft:'200px', paddingTop:'30px'}}>
+    <div className="weather-forecast" style={{ paddingTop:'30px'}}>
       {daily.slice(1).map((day, index) => (
         <div key={index} className="weather-forecast-item">
           <div className="day">{new Date(day.dt * 1000).toLocaleDateString('en', { weekday: 'short' })}</div>
           <img src={getWeatherIconUrl(day.weather[0].icon)} alt="weather icon" className="w-icon" style={{ width:'30px'}} />
-          <div className="description">{day.weather[0].description}</div>
+          <div className="description" style={{fontWeight:'bold',fontSize:'10px'}}>{day.weather[0].description}</div>
           <div className="temp">Night - {day.temp.night}&#176;C</div>
           <div className="temp">Day - {day.temp.day}&#176;C</div>
         </div>
