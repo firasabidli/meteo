@@ -2,11 +2,15 @@ import React from 'react';
 import './CurrentWeather.css';
 import WeatherForecast from './WeatherForecast';
 import CurrentTime from './CurrentTime';
-import ListGroup from 'react-bootstrap/ListGroup';
-import WeatherDesc from './WeatherDesc';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { WiHumidity } from "react-icons/wi";
+import { WiSunrise } from "react-icons/wi";
+import { TbSunset2 } from "react-icons/tb";
+import { WiStrongWind } from "react-icons/wi";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoIosCloud } from "react-icons/io";
+import { MdTimeline } from "react-icons/md";
+import { MdVisibility } from "react-icons/md";
+import { GiMultiDirections } from "react-icons/gi";
 import ClearSkyDay from '../assets/images/01d.png';
 import ClearSkyNight from '../assets/images/01n.png';
 import FewCloudsDay from '../assets/images/02d.png';
@@ -94,7 +98,7 @@ console.log(description);
           <i className="fas fa-map-marker-alt"></i>
         </div>
         <div className="location-text">
-          <p id="location">{city}</p>
+          <p id="location"><FaLocationDot /> {city}</p>
         </div>
       </div>
     </div>
@@ -104,26 +108,26 @@ console.log(description);
       <div className="highlights">
         <div className="cards">
           <div className="card2">
-            <h4 className="card-heading">Sunset</h4>
+            <h4 className="card-heading">Sunset <TbSunset2 /></h4>
             <div className="content">
               <p className="uv-index">{new Date(sunset * 1000).toLocaleTimeString()}</p>
             </div>
           </div>
           <div className="card2">
-            <h4 className="card-heading">Sunrise</h4>
+            <h4 className="card-heading">Sunrise <WiSunrise /></h4>
             <div className="content">
               <p className="sun-rise">{new Date(sunrise * 1000).toLocaleTimeString()}</p>
             </div>
           </div>
           <div className="card2">
-            <h4 className="card-heading">Humidity</h4>
+            <h4 className="card-heading">Humidity <WiHumidity /></h4>
             <div className="content">
               <p className="humidity">{humidity}%</p>
               
             </div>
           </div>
           <div className="card2">
-            <h4 className="card-heading">Wind Status</h4>
+            <h4 className="card-heading">Wind Status <WiStrongWind /></h4>
             <div className="content">
               <p className="wind-speed">{wind_speed} km/h</p>
               
@@ -132,14 +136,14 @@ console.log(description);
         
           
           <div className="card2">
-            <h4 className="card-heading">Cloud Cover</h4>
+            <h4 className="card-heading">Cloud Cover <IoIosCloud /></h4>
             <div className="content">
               <p className="cloud-cover">{current.clouds}%</p>
             </div>
           </div>
 
           <div className="card2">
-            <h4 className="card-heading">Pressure</h4>
+            <h4 className="card-heading">Pressure <MdTimeline/></h4>
             <div className="content">
               <p className="dew-point">{pressure} hPa</p>
             </div>
@@ -153,14 +157,14 @@ console.log(description);
           </div>
 
           <div className="card2">
-            <h4 className="card-heading">Visibility</h4>
+            <h4 className="card-heading">Visibility <MdVisibility /></h4>
             <div className="content">
               <p className="visibility">{current.visibility} meters</p>
             </div>
           </div>
 
           <div className="card2">
-            <h4 className="card-heading">Wind Direction</h4>
+            <h4 className="card-heading">Wind Direction <GiMultiDirections /></h4>
             <div className="content">
               <p className="wind-direction">{current.wind_deg}°</p>
             </div>
