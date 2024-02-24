@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CurrentTime from './components/CurrentTime';
 import CurrentWeather from './components/CurrentWeather';
-import WeatherForecast from './components/WeatherForecast';
+
 
 const API_KEY ='49cc8c821cd2aff9af04c9f98c36eb74';
 
@@ -39,12 +39,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{cityName}</h1>
-      <CurrentTime />
+      
       {weatherData && 
         <>
-          <CurrentWeather weatherData={weatherData} />
-          <WeatherForecast weatherData={weatherData} />
+          <CurrentWeather weatherData={weatherData} city={cityName}  />
+          
         </>
       }
     </div>
