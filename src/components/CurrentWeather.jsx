@@ -103,8 +103,10 @@ console.log(description);
       </div>
     </div>
     <div className="main">
-    <WeatherForecast weatherData={weatherData} />
-      <div className="cards" id="weather-cards"></div>
+    
+      <div className="cards" id="weather-cards">
+      <WeatherForecast weatherData={weatherData} />
+      </div>
       <div className="highlights">
         <div className="cards">
           <div className="card2">

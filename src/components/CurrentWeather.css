@@ -144,7 +144,7 @@ img {
 
 .cards .card {
   width: 100px;
-  height: 130px;
+  height: 150px;
   border-radius: 20px;
   color: #1a1a1a;
   background-color: #fff;
@@ -152,10 +152,14 @@ img {
   padding: 10px 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  
 }
 .card h2 {
   font-size: 15px;
+  font-weight: 600;
+}
+.card h3 {
+  font-size: 10px;
   font-weight: 600;
 }
 .card .card-icon {
