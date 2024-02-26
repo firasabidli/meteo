@@ -6,11 +6,14 @@ import { WiHumidity } from "react-icons/wi";
 import { WiSunrise } from "react-icons/wi";
 import { TbSunset2 } from "react-icons/tb";
 import { WiStrongWind } from "react-icons/wi";
-import { FaLocationDot } from "react-icons/fa6";
+
 import { IoIosCloud } from "react-icons/io";
 import { MdTimeline } from "react-icons/md";
 import { MdVisibility } from "react-icons/md";
 import { GiMultiDirections } from "react-icons/gi";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import ClearSkyDay from '../assets/images/01d.png';
 import ClearSkyNight from '../assets/images/01n.png';
 import FewCloudsDay from '../assets/images/02d.png';
@@ -70,113 +73,103 @@ console.log(description);
   
 
   return (
-          
-    <div className="wrapper">
-    <div className="sidebar">
-      <div>
-      <CurrentTime />
-      <div className="weather-icon">
-        <img src={getWeatherIcon(description)} alt="Weather Icon"/>
-        
-        </div>
-        <div className="condition-rain">
-          <div className="condition">
-            <i className="fas fa-cloud"></i>
-            <p id="condition">{description}</p>
-          </div>
-        </div>
-        <div className="temperature">
-          <h1 id="temp">{temp}</h1>
-          <span className="temp-unit">°C</span>
-        </div>
-        
-        <div className="divider"></div>
-        
-      </div>
-      <div className="location">
-        <div className="location-icon">
-          <i className="fas fa-map-marker-alt"></i>
-        </div>
-        <div className="location-text">
-          <p id="location"><FaLocationDot /> {city}</p>
-        </div>
-      </div>
-    </div>
+    
+    
+  
+    <div className="wrapper ">
+      
     <div className="main">
     
-      <div className="cards" id="weather-cards">
+    <Container className='head'>
+    <Row>
+     <Col md={5}> <CurrentTime city={city} /> </Col>
+     <Col md={2}> </Col>
+      <Col className="weather-icon" md={5}>
+        <img src={getWeatherIcon(description)} alt="Weather Icon"/>
+        <h1>{description}</h1>
+        <h4 id="temp">{temp} °C</h4>
+        </Col>
+        </Row>
+      </Container>
+    
+      
+      
       <WeatherForecast weatherData={weatherData} />
-      </div>
-      <div className="highlights">
-        <div className="cards">
-          <div className="card2">
+     
+      
+      <Container className="highlights text-center">
+        <Row className="cards" d-flex justify-content-center align-items-center>
+        
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Sunset <TbSunset2 /></h4>
             <div className="content">
               <p className="uv-index">{new Date(sunset * 1000).toLocaleTimeString()}</p>
             </div>
-          </div>
-          <div className="card2">
+          </Col>
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Sunrise <WiSunrise /></h4>
             <div className="content">
               <p className="sun-rise">{new Date(sunrise * 1000).toLocaleTimeString()}</p>
             </div>
-          </div>
-          <div className="card2">
+          </Col>
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Humidity <WiHumidity /></h4>
             <div className="content">
               <p className="humidity">{humidity}%</p>
               
             </div>
-          </div>
-          <div className="card2">
+          </Col>
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Wind Status <WiStrongWind /></h4>
             <div className="content">
               <p className="wind-speed">{wind_speed} km/h</p>
               
             </div>
-          </div>
+          </Col>
         
           
-          <div className="card2">
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Cloud Cover <IoIosCloud /></h4>
             <div className="content">
               <p className="cloud-cover">{current.clouds}%</p>
             </div>
-          </div>
+          </Col>
 
-          <div className="card2">
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Pressure <MdTimeline/></h4>
             <div className="content">
               <p className="dew-point">{pressure} hPa</p>
             </div>
-          </div>
+          </Col>
 
-          <div className="card2">
+          <Col className="card2"md={3}>
             <h4 className="card-heading">UV Index</h4>
             <div className="content">
               <p className="uv-index">{current.uvi}</p>
             </div>
-          </div>
+          </Col>
 
-          <div className="card2">
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Visibility <MdVisibility /></h4>
             <div className="content">
               <p className="visibility">{current.visibility} meters</p>
             </div>
-          </div>
+          </Col>
 
-          <div className="card2">
+          <Col className="card2"md={3}>
             <h4 className="card-heading">Wind Direction <GiMultiDirections /></h4>
             <div className="content">
               <p className="wind-direction">{current.wind_deg}°</p>
             </div>
-          </div>
+          </Col>
 
 
-        </div>
-      </div>
+        </Row>
+      </Container>
+     
     </div>
   </div>
+  
   );
 };
 

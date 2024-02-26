@@ -1,9 +1,10 @@
 .time {
-    font-size: 50px;
-  }
-  
-  #am-pm {
     font-size: 30px;
-    margin-left: 20px;
+    padding-top: 130px;
+    padding-left: 49px;
+    color: white;
+  }
+  span{
+    font-size: 25px;
   }
   

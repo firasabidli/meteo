@@ -1,6 +1,8 @@
 import React from 'react';
 import './WeatherForecast.css';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import ClearSkyDay from '../assets/images/01d.png';
 import ClearSkyNight from '../assets/images/01n.png';
 import FewCloudsDay from '../assets/images/02d.png';
@@ -72,20 +74,22 @@ const WeatherForecast = ({ weatherData }) => {
   };
   
   return (
-    <div className="cards" style={{ paddingTop:'30px'}}>
+    <Container className="cards" id="weather-cards">
+    <Row className="cards" style={{ paddingTop:'30px'}}>
       {daily.slice(1).map((day, index) => (
-        <div key={index} className="card">
+        <Col key={index} className="card" md={2}>
           <h2 className="day-name">{new Date(day.dt * 1000).toLocaleDateString('en', { weekday: 'short' })}</h2>
           <div className="card-icon">
           <img src={getWeatherIconUrl(day.weather[0].icon)} alt="weather icon" className="w-icon" style={{ width:'30px'}} />
           </div>
           
-          <div className="day-temp" ><h3>{day.weather[0].description}</h3></div>
-          <div className="day-temp"><h3>Night - {day.temp.night}</h3> <span class="temp-unit">&#176;C</span></div>
-          <div className="day-temp"><h3>Day - {day.temp.day}</h3><span class="temp-unit">&#176;C</span></div>
-        </div>
+          <div className="day-desc"  >{day.weather[0].description}</div>
+          <div className="day-temp"><h3>Night - {day.temp.night} &#176;C</h3> </div>
+          <div className="day-temp"><h3>Day - {day.temp.day} &#176;C</h3> </div>
+        </Col>
       ))}
-    </div>
+    </Row>
+     </Container>
   );
 };
 
